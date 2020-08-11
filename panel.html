@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <title>Painel do cliente</title>
+        <meta charset="UTF-8">
+    </head>
+    <style>
+        body {
+            text-align: center;
+        }
+        table, th, td {
+            width: 50%;
+            border: 1px solid black;
+            border-collapse: collapse;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+    <body onload="javascript:panel();listPets();listVets();listTreatments()">
+        <h1>Bem vindo <span id="login_user"></span></h1>
+
+        <form id="newAnimal" method="POST" action="javascript:newAnimal()">
+            <h2>Cadastrar PET</h2>
+            <input name="nameAnimal" type="text" placeholder="Nome do pet" required><br/>
+            <input name="ageAnimal" type="text" placeholder="Idade do pet" required><br/>
+            <select name="typeAnimal" required>
+                <option value="1">Cachorro</option>
+                <option value="2">Gato</option>
+                <option value="3">Hamster</option>
+              </select><br/>
+            <button>Cadastrar</button>
+        </form>
+        
+
+        <h2>Agendar consulta</h2>
+        <form id="scheduleForm" action="javascript:schedule()">
+            <label for="petClient">Esolha seu pet</label>
+            <select onchange="javascript:listVets(this.value)" id="petClient" name="petClient" required>
+                <option value="" disabled selected>Selecione o seu pet</option>
+            </select><br/>
+
+            <label for="vetPreference">Esolha um veterinário</label>
+            <select id="vetPreference" name="vetPreference" onchange="javascript:listAvailableTimes()" required>
+                <option value="none">Não tenho preferência</option>
+            </select><br/>
+
+            <label for="calendar">Escolhe um dia</label>
+            <input id="calendar" name="calendar" onchange="javascript:listAvailableTimes()" type="date" required><br/>
+
+            <label for="hour">Escolhe um horário</label>
+            <select name="hour" id="hour">
+            </select><br/>
+            <small>Trabalhamos das 09 as 18h</small><br/>
+            <button>Agendar</button>
+        </form>
+
+        <h2>Historico de atendimentos</h2>
+        <table id="treatments">
+            <tr>
+              <th>Veterinário</th>
+              <th>Pet</th>
+              <th>Date de atendimento</th>
+              <th>Diagnostico</th>
+            </tr>
+          </table>
+
+        <script type="text/javascript" src="js/index.js" defer></script>
+    </body>
+</html>

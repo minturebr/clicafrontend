@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>Login do cliente</title>
+        <meta charset="UTF-8">
+    </head>
+    <style>
+        body {
+            text-align: center;
+        }
+    </style>
+    <body>
+        <h1>Cadastro do cliente</h1>
+
+        <form id="clientRegister" method="POST" action="javascript:clientRegister()"> 
+            <input name="name" type="text" placeholder="Nome" required><br/>
+            <input name="cpf" type="text" placeholder="CPF" required><br/>
+            <button>Cadastrar</button>
+        </form>
+
+        <h1>Login do cliente</h1>
+
+        <form id="loginForm" method="POST" action="javascript:clientLogin()"> 
+            <input name="name" type="text" placeholder="Nome" required><br/>
+            <input name="cpf" type="text" placeholder="CPF" required><br/>
+            <button>Logar</button>
+        </form>
+        <script type="text/javascript" src="js/index.js"></script>
+    </body>
+</html>
